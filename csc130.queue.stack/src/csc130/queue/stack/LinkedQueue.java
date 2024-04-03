@@ -1,4 +1,4 @@
-package csc130.queue.arrray;
+package csc130.queue.stack;
 
 public class LinkedQueue<T> implements Queue<T> {
     private Node<T> front, rear;

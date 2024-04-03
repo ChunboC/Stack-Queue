@@ -1,4 +1,4 @@
-package csc130.queue.arrray;
+package csc130.queue.stack;
 
 public class ArrayQueue<T> implements Queue<T> {
 	private T[] items;

@@ -1,4 +1,4 @@
-package csc130.queue.arrray;
+package csc130.queue.stack;
 
 public class StackQueue<T> {
 	ArrayStack<T> stack1 = new ArrayStack<T>();

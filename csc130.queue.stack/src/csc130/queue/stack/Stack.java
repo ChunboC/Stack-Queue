@@ -1,4 +1,4 @@
-package csc130.queue.arrray;
+package csc130.queue.stack;
 public interface Stack<T> {
 	public void push(T data) throws Exception;
 
