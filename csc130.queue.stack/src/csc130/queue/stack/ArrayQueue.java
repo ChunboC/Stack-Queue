@@ -14,18 +14,18 @@ public class ArrayQueue<T> implements Queue<T> {
 	}
 	
 	@Override
-	public void enqueue(T data) throws RuntimeException {
+	public synchronized void enqueue(T data) throws QueueFullException {
 		if (isFull())
-			throw new RuntimeException("Queue full exception");
+			throw new QueueFullException("Queue full exception");
 		items[rear] = data;
 		rear = (rear + 1) % items.length;
 		size++;
 	}
 
 	@Override
-	public T dequeue() throws RuntimeException {
+	public synchronized T dequeue() throws QueueEmptyException {
 		if (isEmpty())
-			throw new RuntimeException("Queue empty exception");
+			throw new QueueEmptyException("Queue empty exception");
 		T item = items[front];
 		front = (front + 1) % items.length;
 		size--;
@@ -33,28 +33,28 @@ public class ArrayQueue<T> implements Queue<T> {
 	}
 
 	@Override
-	public T front() throws RuntimeException {
+	public synchronized T front() throws QueueEmptyException {
 		if (isEmpty())
-			throw new RuntimeException("Queue empty exception");
+			throw new QueueEmptyException("Queue empty exception");
 		return items[front];
 	}
 
 	@Override
-	public int getSize() {
+	public synchronized int getSize() {
 		return size;
 	}
 
 	@Override
-	public boolean isFull() {
+	public synchronized boolean isFull() {
 		return size == items.length;
 	}
 
 	@Override
-	public boolean isEmpty() {
+	public synchronized boolean isEmpty() {
 		return size == 0;
 	}
 	
-	public String toString() {
+	public synchronized String toString() {
 		String str = new String();
 		for (int i = 0; i < size; i++) {
 			str += items[(front + i) % items.length];

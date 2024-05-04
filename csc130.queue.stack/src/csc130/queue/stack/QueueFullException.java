@@ -8,7 +8,7 @@ package csc130.queue.stack;
  * Description: Defines the specific exception when the queue has an error
  * </p>
  * 
- * @author Maria Yanez
+ * @author Chunbo Cheng
  */
 public class QueueFullException extends RuntimeException{
 	
